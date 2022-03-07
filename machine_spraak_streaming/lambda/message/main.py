@@ -3,7 +3,7 @@ import os
 import json
 import base64
 import io
-from scipy.io.wavfile import read, write
+from scipy.io import wavfile
 
 
 url = os.environ['websocket_callback_url']
@@ -27,7 +27,7 @@ def lambda_handler(event, context):
         byte_audio = base64.b64decode(base64_coded_audio)
 
         print(type(byte_audio))
-        rate, data = read(io.BytesIO(byte_audio))
+        rate, data = wavfile.read(io.BytesIO(byte_audio))
         print(data)
 
 

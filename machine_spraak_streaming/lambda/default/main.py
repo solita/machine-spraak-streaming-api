@@ -1,7 +1,8 @@
 
 
 def lambda_handler(event, context):
-    print(event)
+    routeKey = event["requestContext"]["routeKey"]
+    print(f'this is routeKey: {routeKey}')
 
     return { 
         'statusCode' : 200

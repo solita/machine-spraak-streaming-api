@@ -25,19 +25,19 @@ class MachineSpraakStreamingStack(Stack):
         # This could also be done with one larger lambda function that has if/else flows
         # depending on the route.
         connect_handler = lambda_.Function(self, "connectApiFunction",
-            runtime=lambda_.Runtime.PYTHON_3_9,
+            runtime=lambda_.Runtime.PYTHON_3_7,
             handler="main.lambda_handler",
             code=lambda_.Code.from_asset(path.join(dirname, "lambda/connect"))
         )
 
         disconnect_handler = lambda_.Function(self, "disconnectApiFunction",
-            runtime=lambda_.Runtime.PYTHON_3_9,
+            runtime=lambda_.Runtime.PYTHON_3_7,
             handler="main.lambda_handler",
             code=lambda_.Code.from_asset(path.join(dirname, "lambda/disconnect"))
         )
 
         default_handler = lambda_.Function(self, "defaultApiFunction",
-            runtime=lambda_.Runtime.PYTHON_3_9,
+            runtime=lambda_.Runtime.PYTHON_3_7,
             handler="main.lambda_handler",
             code=lambda_.Code.from_asset(path.join(dirname, "lambda/default"))
         )
