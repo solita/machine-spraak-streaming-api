@@ -4,6 +4,7 @@ import json
 import base64
 import io
 from scipy.io import wavfile
+import numpy as np
 
 
 url = os.environ['websocket_callback_url']
@@ -21,20 +22,16 @@ def lambda_handler(event, context):
 
     if routeKey == "message":
 
-        # print(event['body'])
+
         body = json.loads(event['body'])
-        base64_coded_audio = body['base64']
-        byte_audio = base64.b64decode(base64_coded_audio)
+        str_audio = body['sound']
+        sampleRate = body['sampleRate']
 
-        print(type(byte_audio))
-        rate, data = wavfile.read(io.BytesIO(byte_audio))
-        print(data)
+        print(str_audio)
+        
+        array_audio = np.fromstring(str_audio, dtype=np.float64, sep=',')
 
-
-
-        # data, samplerate = sf.read(io.BytesIO(byte_audio))
-
-        # print(type(data))
+        audio = wavfile.write('/tmp/test.wav', sampleRate, array_audio)
 
         
         responseMessage = "executed succesfully"
