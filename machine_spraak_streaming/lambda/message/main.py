@@ -25,13 +25,11 @@ def lambda_handler(event, context):
 
         body = json.loads(event['body'])
         str_audio = body['sound']
-        sampleRate = body['sampleRate']
-
-        print(str_audio)
+        sample_rate = body['sampleRate']
         
         array_audio = np.fromstring(str_audio, dtype=np.float64, sep=',')
 
-        audio = wavfile.write('/tmp/test.wav', sampleRate, array_audio)
+        audio = wavfile.write('/tmp/test.wav', sample_rate, array_audio)
 
         
         responseMessage = "executed succesfully"
