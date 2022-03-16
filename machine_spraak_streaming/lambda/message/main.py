@@ -1,8 +1,6 @@
 import boto3
 import os
 import json
-import base64
-import io
 from scipy.io import wavfile
 import numpy as np
 
