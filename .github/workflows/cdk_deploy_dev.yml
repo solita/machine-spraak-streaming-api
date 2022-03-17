@@ -27,8 +27,8 @@ jobs:
 
       - name: Install Requirements 
         run: 'pip3 install -r requirements.txt'
-        working-directory: cdk
+        working-directory: .
 
       - name: Deploy stack to dev
         run: cdk deploy --require-approval never -c env=dev
-        working-directory: cdk
+        working-directory: .
