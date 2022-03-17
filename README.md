@@ -1,3 +1,6 @@
+# Overview of application architecture
+<img width="1124" alt="Screenshot 2022-03-17 at 13 38 45" src="https://user-images.githubusercontent.com/24875419/158801286-e8355136-54df-43a4-985e-2a789bd7d08d.png">
+
 
 # Welcome to your CDK Python project!
 
