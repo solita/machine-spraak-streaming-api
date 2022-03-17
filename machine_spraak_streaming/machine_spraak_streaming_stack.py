@@ -1,18 +1,14 @@
 from aws_cdk import (
-    # Duration,
-    BundlingOptions,
     Stack,
-    CfnOutput, 
     aws_lambda as lambda_,
-
     aws_apigatewayv2_alpha as apiGateway,
     aws_apigatewayv2_integrations_alpha as integrations
-    # aws_sqs as sqs,
 )
 from constructs import Construct
 from os import path
-dirname = path.dirname(__file__)
 
+
+dirname = path.dirname(__file__)
 
 class MachineSpraakStreamingStack(Stack):
 
